@@ -9,4 +9,4 @@ COPY dist/apps/employee-portal /usr/src/app
 COPY package.json ./
 RUN yarn install
 # new
-CMD [ "yarn", "start-beta-prod" ]
+CMD [ "yarn", "start-prod" ]

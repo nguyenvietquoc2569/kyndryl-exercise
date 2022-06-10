@@ -24,7 +24,7 @@ stage("Build") {
           if (!(configProjects.contains(project))) {
             sh "npx nx run ${project}:build --prod"
           }
-          docker.build("nguyenvietquoc2569/beta-athena-${project}:${version}", ". -f apps/${project}/Dockerfile")
+          docker.build("nguyenvietquoc2569/kyndryl-exercise-${project}:${version}", ". -f apps/${project}/Dockerfile")
           sh "docker login -u nguyenvietquoc2569 -p Nvqlovepaq0708/"
           sh "docker push nguyenvietquoc2569/kyndryl-exercise-${project}:${version}"
         }
