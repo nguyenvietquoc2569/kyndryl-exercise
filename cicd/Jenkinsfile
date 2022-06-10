@@ -10,28 +10,30 @@ stage("Build") {
   jsTask {
     // cleanWs()
     withCredentials([usernamePassword(credentialsId: "jenkins-new-beta", usernameVariable: "gitUsername", passwordVariable: "gitPassword")]){
-      checkout scm
-      sh script: "git pull https://${gitUsername}:${gitPassword}@github.com/nguyenvietquoc2569/kyndryl-exercise.git --tags"
-      
-      sh 'yarn install'
-      sh 'rm -rf .cache'
+      withCredentials([usernamePassword(credentialsId: "dockerhub", usernameVariable: "dockerUsername", passwordVariable: "dockerPassword")]){
+        checkout scm
+        sh script: "git pull https://${gitUsername}:${gitPassword}@github.com/nguyenvietquoc2569/kyndryl-exercise.git --tags"
+        
+        sh 'yarn install'
+        sh 'rm -rf .cache'
 
-      raw = sh(script: "npx nx print-affected --base=${baseSha} --target=${target}", returnStdout: true)
-      projects = readJSON(text: raw)['projects']
-      sh "echo ${projects}"
-      projects.eachWithIndex { project, i ->
-        if (fileExists("apps/${project}/Dockerfile")) {
-          if (!(configProjects.contains(project))) {
-            sh "npx nx run ${project}:build --prod"
+        raw = sh(script: "npx nx print-affected --base=${baseSha} --target=${target}", returnStdout: true)
+        projects = readJSON(text: raw)['projects']
+        sh "echo ${projects}"
+        projects.eachWithIndex { project, i ->
+          if (fileExists("apps/${project}/Dockerfile")) {
+            if (!(configProjects.contains(project))) {
+              sh "npx nx run ${project}:build --prod"
+            }
+            docker.build("nguyenvietquoc2569/kyndryl-exercise-${project}:${version}", ". -f apps/${project}/Dockerfile")
+            sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+            sh "docker push nguyenvietquoc2569/kyndryl-exercise-${project}:${version}"
           }
-          docker.build("nguyenvietquoc2569/kyndryl-exercise-${project}:${version}", ". -f apps/${project}/Dockerfile")
-          sh "docker login -u nguyenvietquoc2569 -p Nvqlovepaq0708/"
-          sh "docker push nguyenvietquoc2569/kyndryl-exercise-${project}:${version}"
         }
+        sh script: "git checkout origin/main"
+        sh script: "git tag -f last-success-build"
+        sh script: "git push https://${gitUsername}:${gitPassword}@github.com/nguyenvietquoc2569/kyndryl-exercise.git --tags --force"
       }
-      sh script: "git checkout origin/main"
-      sh script: "git tag -f last-success-build"
-      sh script: "git push https://${gitUsername}:${gitPassword}@github.com/nguyenvietquoc2569/kyndryl-exercise.git --tags --force"
     }
     // sh 'npx nx run api:build --prod'
     // sh 'npx nx run betaschool:build --prod'
