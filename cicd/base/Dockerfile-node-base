@@ -1,0 +1,6 @@
+# FROM nguyenvietquoc2569/node-beta-athena:latest
+FROM node:14
+
+WORKDIR /usr/src/app
+COPY package.json ./
+RUN yarn install
