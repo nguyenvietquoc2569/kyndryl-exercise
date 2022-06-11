@@ -1,17 +1,17 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/employee-portal-e2e/src",
+  "sourceRoot": "apps/employee-management-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/employee-portal-e2e/cypress.json",
-        "devServerTarget": "employee-portal:serve:development"
+        "cypressConfig": "apps/employee-management-e2e/cypress.json",
+        "devServerTarget": "employee-management:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "employee-portal:serve:production"
+          "devServerTarget": "employee-management:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/employee-portal-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/employee-management-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["employee-portal"]
+  "implicitDependencies": ["employee-management"]
 }

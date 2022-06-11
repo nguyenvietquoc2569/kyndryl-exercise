@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/employee-portal",
+  "sourceRoot": "apps/employee-management",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/employee-portal",
-        "outputPath": "dist/apps/employee-portal"
+        "root": "apps/employee-management",
+        "outputPath": "dist/apps/employee-management"
       },
       "configurations": {
         "development": {},
@@ -20,16 +20,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "employee-portal:build",
+        "buildTarget": "employee-management:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "employee-portal:build:development",
+          "buildTarget": "employee-management:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "employee-portal:build:production",
+          "buildTarget": "employee-management:build:production",
           "dev": false
         }
       }
@@ -37,14 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "employee-portal:build:production"
+        "buildTarget": "employee-management:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/employee-portal"],
+      "outputs": ["coverage/apps/employee-management"],
       "options": {
-        "jestConfig": "apps/employee-portal/jest.config.ts",
+        "jestConfig": "apps/employee-management/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -52,7 +52,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/employee-portal/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/employee-management/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

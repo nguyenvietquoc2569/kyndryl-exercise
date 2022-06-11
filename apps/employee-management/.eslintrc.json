@@ -12,7 +12,7 @@
       "rules": {
         "@next/next/no-html-link-for-pages": [
           "error",
-          "apps/employee-portal/pages"
+          "apps/employee-management/pages"
         ]
       }
     },

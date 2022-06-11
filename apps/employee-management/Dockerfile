@@ -5,7 +5,7 @@ FROM nguyenvietquoc2569/node-beta-athena:latest
 WORKDIR /usr/src/app
 EXPOSE 3000
 
-COPY dist/apps/employee-portal /usr/src/app
+COPY dist/apps/employee-management /usr/src/app
 COPY package.json ./
 RUN yarn install
 # new

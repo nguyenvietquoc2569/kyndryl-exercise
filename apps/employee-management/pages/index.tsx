@@ -22,7 +22,7 @@ export function Index() {
             <div id="welcome">
               <h1>
                 <span> Hello there, </span>
-                Welcome employee-portal 👋
+                Welcome employee-management 👋
               </h1>
             </div>
 
