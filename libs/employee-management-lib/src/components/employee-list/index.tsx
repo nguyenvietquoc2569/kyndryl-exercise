@@ -66,7 +66,9 @@ export const EmployeeList = () => {
           </>
         }
       ></CardHeader>
-      <CardContent sx={{ height: '90vh', overflowY: 'auto' }}>
+      <CardContent 
+        sx={{ height: '85vh', overflowY: 'auto' }}
+        >
         {state.empPage.status === EReduxEmpPageStatus.LOADING && (
           <CircularProgress />
         )}

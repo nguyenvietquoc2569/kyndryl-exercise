@@ -14,9 +14,7 @@ export function Index() {
       <Head>
         <title>Employee Portal - Demo</title>
       </Head>
-      
-          <EmployeeListView></EmployeeListView>
-      
+      <EmployeeListView></EmployeeListView>
     </>
   );
 }

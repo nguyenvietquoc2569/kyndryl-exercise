@@ -46,7 +46,7 @@ export const EmployeeDetail: FC = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid container>
+        <Grid container sx={{textAlign: 'center'}}>
           <EmployeeRecord label="Birthday" value={new Date(employee.dob.date).toDateString()} />
           <EmployeeRecord label="Email" value={employee.email} />
           <EmployeeRecord

@@ -20,7 +20,11 @@ export default function Document() {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Main />
+          <div className="App">
+            <div className="container">
+              <div className='main'><Main /></div>              
+            </div>
+          </div>
         </ThemeProvider>
         <NextScript />
       </body>
