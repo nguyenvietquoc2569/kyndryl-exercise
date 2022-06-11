@@ -6,16 +6,28 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "start-prod": "next start"
+    "start-prod": "next start",
+    "commit": "git-cz"
   },
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.3",
     "@nrwl/next": "14.2.4",
     "core-js": "^3.6.5",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-is": "18.1.0",
     "regenerator-runtime": "0.13.7",
+    "styled-components": "5.3.5",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -32,9 +44,12 @@
     "@types/node": "16.11.7",
     "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
+    "@types/react-is": "17.0.3",
+    "@types/styled-components": "5.1.25",
     "@typescript-eslint/eslint-plugin": "~5.24.0",
     "@typescript-eslint/parser": "~5.24.0",
     "babel-jest": "27.5.1",
+    "babel-plugin-styled-components": "1.10.7",
     "cypress": "^9.1.0",
     "eslint": "~8.15.0",
     "eslint-config-next": "12.1.5",
@@ -44,6 +59,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "git-cz": "^4.9.0",
     "jest": "27.5.1",
     "nx": "14.2.4",
     "prettier": "^2.6.2",
