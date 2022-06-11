@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "employee-management": "apps/employee-management"
+    "employee-management": "apps/employee-management",
+    "employee-management-lib": "libs/employee-management-lib"
   }
 }
