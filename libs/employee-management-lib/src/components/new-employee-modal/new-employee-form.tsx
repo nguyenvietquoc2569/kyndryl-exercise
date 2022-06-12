@@ -186,6 +186,14 @@ export const NewEmployeeForm: FC = () => {
             onChange={handleFormChange}
             sx={{padding: '5px'}}
           />
+          <TextField
+            fullWidth
+            label="Photo link"
+            name="photo"
+            value={photo}
+            onChange={handleFormChange}
+            sx={{padding: '5px'}}
+          />
         </Box>
         <Box sx={{ marginTop: '10px', display: 'flex' }}>
           <TextField
