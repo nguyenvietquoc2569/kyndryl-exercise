@@ -27,17 +27,13 @@ import { useTypedSelector } from '../../redux/store';
 import { EmployeeListItem } from './employee-list-item';
 import Refresh from '@mui/icons-material/Refresh';
 import { useFilteredEmployees } from '../../hooks/filtered-employees-hook';
+import { fetchAccountService } from '../../services/accounts';
 
 export const EmployeeList = () => {
   const dispatch = useDispatch();
   const fetchEmployees = useCallback(() => {
     reduxEmpPageActionSetLoading(dispatch);
-    axios({
-      method: 'GET',
-      baseURL: 'https://randomuser.me/',
-      url: '/api/?results=100',
-      data: {},
-    })
+    fetchAccountService()
       .then((res) => {
         reduxEmpPageActionSetCurrentEmployeeIndex(dispatch, ' ');
         reduxEmpPageActionSetShow(dispatch, res.data.results);
