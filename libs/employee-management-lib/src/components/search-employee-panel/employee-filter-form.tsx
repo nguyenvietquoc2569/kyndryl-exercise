@@ -1,19 +1,20 @@
 import { getMonth, getYear, monthsList } from "@kyndryl-exercise/utils"
 import { Button, SelectChangeEvent } from "@mui/material"
-import { FC, useCallback } from "react"
+import { ChangeEvent, FC, useCallback } from "react"
 import { useDispatch } from "react-redux"
 import { useFilteredEmployees } from "../../hooks/filtered-employees-hook"
 import { reduxEmpPageActionSetFilter } from "../../redux/employee-page/actions"
 import { filterEmployeesInitvalue } from "../../redux/employee-page/type"
 import { useTypedSelector } from "../../redux/store"
 import InputSelector from "./input-seletor"
+import InputText from "./input-text"
 
 export const EmployeeFilterForm: FC = () => {
   const filterEmployees = useFilteredEmployees()
   const filters = useTypedSelector(state => state.empPage.filters)
   const dispatch = useDispatch()
 
-  const handleChange = useCallback((e: SelectChangeEvent<string>) => {
+  const handleChange = useCallback((e: any) => {
     reduxEmpPageActionSetFilter(dispatch, {
       ...filters,
       [e.target.name]: e.target.value,
@@ -47,21 +48,19 @@ export const EmployeeFilterForm: FC = () => {
       })
     ))
   }, [filterEmployees])
-
-  const getStateFromFilterEmployeed = useCallback(() => {
-    return Array.from(new Set(
-      filterEmployees.map((e) => {
-        return e.location.state
-      })
-    ))
-  }, [filterEmployees])
   
   const resetFilter = () => {
     reduxEmpPageActionSetFilter(dispatch, filterEmployeesInitvalue)
   }
   
-
   return <>
+    <InputText
+      name="text"
+      placeHolder="Search for address/name/email"
+      value={filters.text}
+      onChange={handleChange}
+      // sx={{ ml: 1, flex: 1 }}
+    ></InputText>
     <InputSelector
         name="gender"
         label="Gender"
@@ -81,13 +80,6 @@ export const EmployeeFilterForm: FC = () => {
         label="Year"
         value={filters.year}
         options={getYearFromFilterEmployeed()}
-        onChange={handleChange}
-      />
-    <InputSelector
-        name="state"
-        label="State"
-        value={filters.state}
-        options={getStateFromFilterEmployeed()}
         onChange={handleChange}
       />
     <Button onClick={resetFilter}>Reset Filter</Button>

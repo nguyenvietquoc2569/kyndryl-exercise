@@ -35,7 +35,7 @@ export const EmployeeList = () => {
     axios({
       method: 'GET',
       baseURL: 'https://randomuser.me/',
-      url: '/api/?results=5',
+      url: '/api/?results=100',
       data: {},
     })
       .then((res) => {

@@ -8,14 +8,12 @@ export enum EReduxEmpPageStatus {
 export interface IFilterEmployees {
   month: string,
   year: string,
-  state: string,
   gender: string,
   text: string
 }
 export const filterEmployeesInitvalue: IFilterEmployees = {
   month: '',
   year: '',
-  state: '',
   gender: '',
   text: ''
 }
