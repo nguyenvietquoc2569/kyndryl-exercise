@@ -35,6 +35,11 @@ export const reduxEmpPageReducer: Reducer<IReduxEmpPageState> = (state = reduxEm
         ...state,
         isNewModalOpen: payload.isNewModalOpen
       }
+    case EReduxEmpPageAction.ADDNEWEMPLOYEE:
+      return {
+        ...state,
+        employeeList: [payload.newEmployee, ...state.employeeList]
+      }
     default:
       return state
   }

@@ -60,7 +60,7 @@ export interface IEmployee {
 export const employeeInitialValue: IEmployee = {
   cell: '',
   dob: {
-    date: '',
+    date: '1955-08-15T20:20:20.625Z',
     age: 0
   },
   email: '',
@@ -111,7 +111,8 @@ export enum EReduxEmpPageAction {
   SETERROR = '@@EMPPAGESETERROR',
   SETSHOWINDEX = '@@EMPPAGESETINDEX',
   SETFILTER = ' @@SETFILTER',
-  TOGGLENEWEMPMODAL = '@@TOGGLENEWEMPMODAL'
+  TOGGLENEWEMPMODAL = '@@TOGGLENEWEMPMODAL',
+  ADDNEWEMPLOYEE = '@@ADDNEWEMPLOYEE'
 }
 
 export const reduxEmpPageInitState: IReduxEmpPageState = {

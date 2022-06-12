@@ -52,3 +52,12 @@ export const reduxEmpPageActionToggleNewEmpModal = (dispatch: any, isNewModalOpe
     }
   })
 }
+
+export const reduxEmpPageActionAddNewEmp = (dispatch: any, newEmployee: IEmployee) => {
+  dispatch({
+    type: EReduxEmpPageAction.ADDNEWEMPLOYEE,
+    payload: {
+      newEmployee
+    }
+  })
+}
