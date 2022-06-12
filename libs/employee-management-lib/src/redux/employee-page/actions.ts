@@ -43,3 +43,12 @@ export const reduxEmpPageActionSetFilter = (dispatch: any, filter: IFilterEmploy
     }
   })
 }
+
+export const reduxEmpPageActionToggleNewEmpModal = (dispatch: any, isNewModalOpen: boolean) => {
+  dispatch({
+    type: EReduxEmpPageAction.TOGGLENEWEMPMODAL,
+    payload: {
+      isNewModalOpen: isNewModalOpen
+    }
+  })
+}

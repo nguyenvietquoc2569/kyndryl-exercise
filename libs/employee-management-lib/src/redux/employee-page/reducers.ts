@@ -30,6 +30,11 @@ export const reduxEmpPageReducer: Reducer<IReduxEmpPageState> = (state = reduxEm
         ...state,
         filters: payload.filters
       }
+    case EReduxEmpPageAction.TOGGLENEWEMPMODAL:
+      return {
+        ...state,
+        isNewModalOpen: payload.isNewModalOpen
+      }
     default:
       return state
   }

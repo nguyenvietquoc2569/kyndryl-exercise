@@ -62,7 +62,8 @@ export interface IReduxEmpPageState {
   errorMessage: string,
   employeeList: Array<IEmployee>,
   currentEmployeeIndex: string,
-  filters: IFilterEmployees
+  filters: IFilterEmployees,
+  isNewModalOpen: boolean,
 }
 
 export enum EReduxEmpPageAction {
@@ -70,7 +71,8 @@ export enum EReduxEmpPageAction {
   SETSHOW= '@@EMPPAGESETSHOWING',
   SETERROR = '@@EMPPAGESETERROR',
   SETSHOWINDEX = '@@EMPPAGESETINDEX',
-  SETFILTER = ' @@SETFILTER'
+  SETFILTER = ' @@SETFILTER',
+  TOGGLENEWEMPMODAL = '@@TOGGLENEWEMPMODAL'
 }
 
 export const reduxEmpPageInitState: IReduxEmpPageState = {
@@ -78,5 +80,6 @@ export const reduxEmpPageInitState: IReduxEmpPageState = {
   errorMessage: '',
   employeeList: [],
   currentEmployeeIndex: '',
-  filters: filterEmployeesInitvalue
+  filters: filterEmployeesInitvalue,
+  isNewModalOpen: false
 }
