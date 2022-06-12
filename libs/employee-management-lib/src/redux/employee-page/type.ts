@@ -57,6 +57,45 @@ export interface IEmployee {
   }
 }
 
+export const employeeInitialValue: IEmployee = {
+  cell: '',
+  dob: {
+    date: '',
+    age: 0
+  },
+  email: '',
+  gender: 'unknown',
+  id: { name: '', value: ''},
+  location: {
+    number: '',
+    city: '',
+    coordinates: {
+      latitude: '',
+      longitude: '',
+    },
+    country: '',
+    postcode: '',
+    state: '',
+    street: '',
+    timezone: {},
+  },
+  login: {},
+  name: {
+    first: '', last: '', title: ''
+  },
+  nat: '',
+  phone: '',
+  picture: {
+    large: '',
+    medium: '',
+    thumbnail: ''
+  },
+  registered: {
+    age: 0,
+    date: ''
+  }
+}
+
 export interface IReduxEmpPageState {
   status: EReduxEmpPageStatus,
   errorMessage: string,

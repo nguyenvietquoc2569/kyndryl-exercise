@@ -5,6 +5,7 @@ import { EmployeeList } from '../components/employee-list';
 import { EmployeeDetail } from '../components/employee-detail';
 import { Grid } from '@mui/material';
 import { EmployeeFilterPanel } from '../components/search-employee-panel';
+import { NewEmployeeModal } from '../components/new-employee-modal';
 
 export const EmployeeListView: FC = () => {
   return (
@@ -20,6 +21,7 @@ export const EmployeeListView: FC = () => {
           <EmployeeDetail></EmployeeDetail>
         </Grid>
       </Grid>
+      <NewEmployeeModal></NewEmployeeModal>
     </Provider>
   );
 };
