@@ -26,6 +26,7 @@ import { EReduxEmpPageStatus, IEmployee } from '../../redux/employee-page/type';
 import { useTypedSelector } from '../../redux/store';
 import { EmployeeListItem } from './employee-list-item';
 import Refresh from '@mui/icons-material/Refresh';
+import { useFilteredEmployees } from '../../hooks/filtered-employees-hook';
 
 export const EmployeeList = () => {
   const dispatch = useDispatch();
@@ -34,16 +35,15 @@ export const EmployeeList = () => {
     axios({
       method: 'GET',
       baseURL: 'https://randomuser.me/',
-      url: '/api/?results=100',
+      url: '/api/?results=5',
       data: {},
     })
       .then((res) => {
         reduxEmpPageActionSetCurrentEmployeeIndex(dispatch, ' ');
         reduxEmpPageActionSetShow(dispatch, res.data.results);
-        console.log(res.data.results);
       })
       .catch((e: Error) => {
-        console.log(e.message);
+        console.log(e);
         reduxEmpPageActionSetError(dispatch, e.message);
       });
   }, [dispatch]);
@@ -51,6 +51,8 @@ export const EmployeeList = () => {
   useEffect(() => {
     fetchEmployees();
   }, [fetchEmployees]);
+
+  const filteredEmployees = useFilteredEmployees()
 
   const state = useTypedSelector((state) => state);
 
@@ -67,14 +69,14 @@ export const EmployeeList = () => {
         }
       ></CardHeader>
       <CardContent 
-        sx={{ height: '85vh', overflowY: 'auto' }}
+        sx={{ height: '75vh', overflowY: 'auto' }}
         >
         {state.empPage.status === EReduxEmpPageStatus.LOADING && (
           <CircularProgress />
         )}
         {state.empPage.status === EReduxEmpPageStatus.SHOWING && (
           <MenuList>
-            {state.empPage.employeeList.map((employee: IEmployee, idx) => {
+            {filteredEmployees.map((employee: IEmployee, idx) => {
               return <EmployeeListItem employee={employee} key={idx} />;
             })}
           </MenuList>

@@ -17,7 +17,8 @@
     "paths": {
       "@kyndryl-exercise/employee-management-lib": [
         "libs/employee-management-lib/src/index.ts"
-      ]
+      ],
+      "@kyndryl-exercise/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

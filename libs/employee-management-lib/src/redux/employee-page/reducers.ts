@@ -25,6 +25,11 @@ export const reduxEmpPageReducer: Reducer<IReduxEmpPageState> = (state = reduxEm
         ...state,
         currentEmployeeIndex: payload.currentEmployeeIndex
       }
+    case EReduxEmpPageAction.SETFILTER:
+      return {
+        ...state,
+        filters: payload.filters
+      }
     default:
       return state
   }

@@ -1,4 +1,4 @@
-import { IEmployee, EReduxEmpPageAction } from "./type"
+import { IEmployee, EReduxEmpPageAction, IFilterEmployees } from "./type"
 
 export const reduxEmpPageActionSetShow = (dispatch: any, employeeList: Array<IEmployee>) => {
   dispatch({
@@ -31,6 +31,15 @@ export const reduxEmpPageActionSetLoading = (dispatch: any) => {
   dispatch({
     type: EReduxEmpPageAction.SETLOADING,
     payload: {
+    }
+  })
+}
+
+export const reduxEmpPageActionSetFilter = (dispatch: any, filter: IFilterEmployees) => {
+  dispatch({
+    type: EReduxEmpPageAction.SETFILTER,
+    payload: {
+      filters: filter
     }
   })
 }

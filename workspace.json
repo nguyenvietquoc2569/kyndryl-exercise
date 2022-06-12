@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "employee-management": "apps/employee-management",
-    "employee-management-lib": "libs/employee-management-lib"
+    "employee-management-lib": "libs/employee-management-lib",
+    "utils": "libs/utils"
   }
 }

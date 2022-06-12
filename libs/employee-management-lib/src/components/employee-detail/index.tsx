@@ -12,9 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../redux/store';
 
 export const EmployeeDetail: FC = () => {
-  const dispatch = useDispatch();
   const state = useTypedSelector((state) => state);
-  console.log('quoc', state.empPage.currentEmployeeIndex);
   const employee = state.empPage.employeeList.find(
     (emp) =>
       emp.email.trim().toLocaleLowerCase() ===

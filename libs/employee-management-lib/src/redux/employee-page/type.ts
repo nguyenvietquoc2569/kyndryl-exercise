@@ -5,6 +5,21 @@ export enum EReduxEmpPageStatus {
   ERROR,
 }
 
+export interface IFilterEmployees {
+  month: string,
+  year: string,
+  state: string,
+  gender: string,
+  text: string
+}
+export const filterEmployeesInitvalue: IFilterEmployees = {
+  month: '',
+  year: '',
+  state: '',
+  gender: '',
+  text: ''
+}
+
 export interface IEmployee {
   cell: string,
   dob: {
@@ -49,6 +64,7 @@ export interface IReduxEmpPageState {
   errorMessage: string,
   employeeList: Array<IEmployee>,
   currentEmployeeIndex: string,
+  filters: IFilterEmployees
 }
 
 export enum EReduxEmpPageAction {
@@ -56,11 +72,13 @@ export enum EReduxEmpPageAction {
   SETSHOW= '@@EMPPAGESETSHOWING',
   SETERROR = '@@EMPPAGESETERROR',
   SETSHOWINDEX = '@@EMPPAGESETINDEX',
+  SETFILTER = ' @@SETFILTER'
 }
 
 export const reduxEmpPageInitState: IReduxEmpPageState = {
   status: EReduxEmpPageStatus.SHOWING,
   errorMessage: '',
   employeeList: [],
-  currentEmployeeIndex: ''
+  currentEmployeeIndex: '',
+  filters: filterEmployeesInitvalue
 }
