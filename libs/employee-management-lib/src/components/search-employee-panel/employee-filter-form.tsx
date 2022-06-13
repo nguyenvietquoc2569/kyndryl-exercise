@@ -1,6 +1,6 @@
 import { getMonth, getYear, monthsList } from "@kyndryl-exercise/utils"
-import { Button, SelectChangeEvent } from "@mui/material"
-import { ChangeEvent, FC, useCallback } from "react"
+import { Button } from "@mui/material"
+import { FC, useCallback } from "react"
 import { useDispatch } from "react-redux"
 import { useFilteredEmployees } from "../../hooks/filtered-employees-hook"
 import { reduxEmpPageActionSetFilter } from "../../redux/employee-page/actions"

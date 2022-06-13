@@ -1,14 +1,21 @@
 import { useState } from 'react'
 
-export function useHandelInput<T> (initialValues: T) : [T, (e: any) => void] {
+interface EventType {
+  target: {
+    name: string,
+    value: any
+  }
+}
+
+export function useHandelInput<T> (initialValues: T) : [T, (e: EventType) => void] {
   const [values, setValues] = useState<T>(initialValues)
 
   return [
     values,
-    (e: any) => {
-      setValues((vals: any) => {
+    (e: EventType) => {
+      setValues((currentValues: T) => {
         return {
-          ...vals,
+          ...currentValues,
           [e.target.name]: e.target.value,
         }
       })

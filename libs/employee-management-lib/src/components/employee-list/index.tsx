@@ -1,21 +1,15 @@
 import {
   Alert,
-  Avatar,
   Button,
   Card,
   CardContent,
   CardHeader,
   CircularProgress,
-  Container,
-  CssBaseline,
-  ListItemAvatar,
-  ListItemText,
-  MenuItem,
   MenuList,
 } from '@mui/material';
 import axios from 'axios';
-import { useCallback, useEffect, useId, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   reduxEmpPageActionSetCurrentEmployeeIndex,
   reduxEmpPageActionSetError,

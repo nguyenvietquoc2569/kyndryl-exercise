@@ -1,6 +1,5 @@
-import { Modal, Theme, Typography } from '@mui/material';
+import { Modal, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Box } from '@mui/system';
 import { useCallback, useState } from 'react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';

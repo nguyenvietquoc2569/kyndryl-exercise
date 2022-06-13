@@ -2,13 +2,10 @@ import {
   Avatar,
   Card,
   CardContent,
-  CardMedia,
   Grid,
   Typography,
 } from '@mui/material';
-import { Container } from '@mui/system';
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../redux/store';
 
 export const EmployeeDetail: FC = () => {

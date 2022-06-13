@@ -1,4 +1,4 @@
-import { InputBase, SxProps, TextField } from '@mui/material';
+import { SxProps, TextField } from '@mui/material';
 import { Theme } from '@mui/material';
 import { ChangeEvent } from 'react';
 
