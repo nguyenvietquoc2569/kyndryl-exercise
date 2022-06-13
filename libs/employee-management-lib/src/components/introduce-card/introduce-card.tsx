@@ -5,7 +5,7 @@ export const IntroCard: FC = () => {
   return <Card>
     <CardContent>
       <Typography variant="h5" component="div">
-        Kyndral exercise
+        Kyndryl exercise
       </Typography>
       <Typography variant="h6" gutterBottom component="div">
         you can find source code at : <a href='https://github.com/nguyenvietquoc2569/kyndryl-exercise'>github</a><br/>
