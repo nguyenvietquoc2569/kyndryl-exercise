@@ -36,7 +36,7 @@ export const NewEmployeeModal: FC = () => {
   const [modalStyle] = useState(getModalStyle);
 
   const onClose = useCallback(() => {
-    reduxEmpPageActionToggleNewEmpModal(dispatch, false);
+    dispatch(reduxEmpPageActionToggleNewEmpModal(false))
   }, [dispatch]);
   return (
     <Modal

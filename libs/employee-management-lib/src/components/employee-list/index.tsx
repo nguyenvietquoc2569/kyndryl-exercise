@@ -28,15 +28,15 @@ import { AddCircle } from '@mui/icons-material';
 export const EmployeeList = () => {
   const dispatch = useDispatch();
   const fetchEmployees = useCallback(() => {
-    reduxEmpPageActionSetLoading(dispatch);
+    dispatch(reduxEmpPageActionSetLoading());
     fetchAccountService()
       .then((res) => {
-        reduxEmpPageActionSetCurrentEmployeeIndex(dispatch, ' ');
-        reduxEmpPageActionSetShow(dispatch, res.data.results);
+        dispatch(reduxEmpPageActionSetCurrentEmployeeIndex(' '));
+        dispatch(reduxEmpPageActionSetShow(res.data.results));
       })
       .catch((e: Error) => {
         console.log(e);
-        reduxEmpPageActionSetError(dispatch, e.message);
+        dispatch(reduxEmpPageActionSetError(e.message));
       });
   }, [dispatch]);
 
@@ -45,7 +45,7 @@ export const EmployeeList = () => {
   }, [fetchEmployees]);
 
   const showNewEmpModal = useCallback(() => {
-    reduxEmpPageActionToggleNewEmpModal(dispatch, true)
+    dispatch(reduxEmpPageActionToggleNewEmpModal(true))
   }, [dispatch])
 
   const filteredEmployees = useFilteredEmployees()

@@ -70,7 +70,7 @@ export const NewEmployeeForm: FC = () => {
   ] = useHandelInput<IFormData>(formInit);
 
   const closeModal = useCallback(()=> {
-    reduxEmpPageActionToggleNewEmpModal(dispatch, false)
+    dispatch(reduxEmpPageActionToggleNewEmpModal(false))
   }, [dispatch])
 
   const addNewEmployee = useCallback(() => {
@@ -104,9 +104,9 @@ export const NewEmployeeForm: FC = () => {
         timezone: timeZone
       },
     }
-    reduxEmpPageActionAddNewEmp(dispatch, emp)
-    reduxEmpPageActionSetFilter(dispatch, filterEmployeesInitvalue)
-    reduxEmpPageActionToggleNewEmpModal(dispatch, false)
+    dispatch(reduxEmpPageActionAddNewEmp(emp))
+    dispatch(reduxEmpPageActionSetFilter(filterEmployeesInitvalue))
+    dispatch(reduxEmpPageActionToggleNewEmpModal(false))
 
   }, [
     title,

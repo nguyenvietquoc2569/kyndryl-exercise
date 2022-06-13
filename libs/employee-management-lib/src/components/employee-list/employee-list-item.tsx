@@ -12,7 +12,7 @@ export const EmployeeListItem: FC<{
     <MenuItem
       // key={`${idx}-${employee.cell}`}
       onClick={() => {
-        reduxEmpPageActionSetCurrentEmployeeIndex(dispatch, employee.email);
+        dispatch(reduxEmpPageActionSetCurrentEmployeeIndex(employee.email));
       }}
     >
       <ListItemAvatar>

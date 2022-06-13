@@ -1,7 +1,7 @@
 import { IEmployee, EReduxEmpPageAction, IFilterEmployees } from "./type"
 
-export const reduxEmpPageActionSetShow = (dispatch: any, employeeList: Array<IEmployee>) => {
-  dispatch({
+export const reduxEmpPageActionSetShow = (employeeList: Array<IEmployee>) => {
+  return ({
     type: EReduxEmpPageAction.SETSHOW,
     payload: {
       employeeList
@@ -9,8 +9,8 @@ export const reduxEmpPageActionSetShow = (dispatch: any, employeeList: Array<IEm
   })
 }
 
-export const reduxEmpPageActionSetCurrentEmployeeIndex = (dispatch: any, id: string) => {
-  dispatch({
+export const reduxEmpPageActionSetCurrentEmployeeIndex = (id: string) => {
+  return ({
     type: EReduxEmpPageAction.SETSHOWINDEX,
     payload: {
       currentEmployeeIndex: id
@@ -18,8 +18,8 @@ export const reduxEmpPageActionSetCurrentEmployeeIndex = (dispatch: any, id: str
   })
 }
 
-export const reduxEmpPageActionSetError = (dispatch: any, errorMessage: string) => {
-  dispatch({
+export const reduxEmpPageActionSetError = (errorMessage: string) => {
+  return ({
     type: EReduxEmpPageAction.SETERROR,
     payload: {
       errorMessage
@@ -27,16 +27,16 @@ export const reduxEmpPageActionSetError = (dispatch: any, errorMessage: string) 
   })
 }
 
-export const reduxEmpPageActionSetLoading = (dispatch: any) => {
-  dispatch({
+export const reduxEmpPageActionSetLoading = () => {
+  return ({
     type: EReduxEmpPageAction.SETLOADING,
     payload: {
     }
   })
 }
 
-export const reduxEmpPageActionSetFilter = (dispatch: any, filter: IFilterEmployees) => {
-  dispatch({
+export const reduxEmpPageActionSetFilter = (filter: IFilterEmployees) => {
+  return ({
     type: EReduxEmpPageAction.SETFILTER,
     payload: {
       filters: filter
@@ -44,8 +44,8 @@ export const reduxEmpPageActionSetFilter = (dispatch: any, filter: IFilterEmploy
   })
 }
 
-export const reduxEmpPageActionToggleNewEmpModal = (dispatch: any, isNewModalOpen: boolean) => {
-  dispatch({
+export const reduxEmpPageActionToggleNewEmpModal = (isNewModalOpen: boolean) => {
+  return ({
     type: EReduxEmpPageAction.TOGGLENEWEMPMODAL,
     payload: {
       isNewModalOpen: isNewModalOpen
@@ -53,8 +53,8 @@ export const reduxEmpPageActionToggleNewEmpModal = (dispatch: any, isNewModalOpe
   })
 }
 
-export const reduxEmpPageActionAddNewEmp = (dispatch: any, newEmployee: IEmployee) => {
-  dispatch({
+export const reduxEmpPageActionAddNewEmp = (newEmployee: IEmployee) => {
+  return ({
     type: EReduxEmpPageAction.ADDNEWEMPLOYEE,
     payload: {
       newEmployee

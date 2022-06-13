@@ -15,10 +15,10 @@ export const EmployeeFilterForm: FC = () => {
   const dispatch = useDispatch()
 
   const handleChange = useCallback((e: any) => {
-    reduxEmpPageActionSetFilter(dispatch, {
+    dispatch(reduxEmpPageActionSetFilter({
       ...filters,
       [e.target.name]: e.target.value,
-    })
+    }))
   }, [dispatch, filters])
 
   const getMonthFromFilterEmployeed = useCallback(() => {
@@ -50,7 +50,7 @@ export const EmployeeFilterForm: FC = () => {
   }, [filterEmployees])
   
   const resetFilter = () => {
-    reduxEmpPageActionSetFilter(dispatch, filterEmployeesInitvalue)
+    dispatch(reduxEmpPageActionSetFilter(filterEmployeesInitvalue))
   }
   
   return <>
