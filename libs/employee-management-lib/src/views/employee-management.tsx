@@ -6,11 +6,15 @@ import { EmployeeDetail } from '../components/employee-detail';
 import { Grid } from '@mui/material';
 import { EmployeeFilterPanel } from '../components/search-employee-panel';
 import { NewEmployeeModal } from '../components/new-employee-modal';
+import { IntroCard } from '../components/introduce-card/introduce-card';
 
 export const EmployeeListView: FC = () => {
   return (
     <Provider store={store}>
       <Grid container spacing={2}>
+        <Grid item xs={12} md={12} lg={12} xl={12}>
+          <IntroCard></IntroCard>
+        </Grid>
         <Grid item xs={12} md={12} lg={12} xl={12}>
           <EmployeeFilterPanel></EmployeeFilterPanel>
         </Grid>
